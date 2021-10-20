@@ -51,11 +51,11 @@ class Person(BaseModel):
     died: int
 
 
-class Crew(BaseModel):
+class CrewMember(BaseModel):
     title_id: str
     person_id: str
     category: str
-    job: str
+    job: Union[str, None]
     characters: str
     
 
