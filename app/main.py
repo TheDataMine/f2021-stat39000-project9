@@ -22,8 +22,8 @@ async def root():
 @app.get(
     "/movies/{title_id}", 
     response_model=Title, 
-    summary="Get and filter movies.",
-    response_description="A list of (possibly filtered) movies."
+    summary="Get a movie with title_id.",
+    response_description="A movie."
 )
 async def get_movies(title_id: str):
     movie = get_movie_with_id(title_id)
