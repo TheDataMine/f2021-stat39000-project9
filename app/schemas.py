@@ -25,11 +25,11 @@ class AKA(BaseModel):
     language: Union[str, None, EmptyStrToNone]
     types: Union[str, None, EmptyStrToNone]
     attributes: Union[str, None, EmptyStrToNone]
-    is_original_title: bool
+    is_original_title: Union[bool, None]
 
 
 class Genre(BaseModel):
-    genre: str
+    genre: Union[str, None, EmptyStrToNone]
 
 
 class Title(BaseModel):
@@ -37,18 +37,18 @@ class Title(BaseModel):
     type: Union[str, None, EmptyStrToNone]
     primary_title: Union[str, None, EmptyStrToNone]
     original_title: Union[str, None, EmptyStrToNone]
-    is_adult: bool
-    premiered: int
+    is_adult: Union[bool, None]
+    premiered: Union[int, None]
     ended: Union[int, None]
-    runtime_minutes: int
+    runtime_minutes: Union[int, None]
     genres: list[Genre]
     
 
 class Person(BaseModel):
-    person_id: str
+    person_id: Union[str, None, EmptyStrToNone]
     name: Union[str, None, EmptyStrToNone]
-    born: int
-    died: int
+    born: Union[int, None]
+    died: Union[int, None]
 
 
 class CrewMember(BaseModel):
@@ -61,12 +61,12 @@ class CrewMember(BaseModel):
 
 class Rating(BaseModel):
     title_id: Union[str, None, EmptyStrToNone]
-    rating: float
-    votes: int
+    rating: Union[float, None]
+    votes: Union[int, None]
     
     
 class Episode(BaseModel):
     episode_title_id: Union[str, None, EmptyStrToNone]
     show_title_id: Union[str, None, EmptyStrToNone]
-    season_number: int
-    episode_number: int
+    season_number: Union[int, None]
+    episode_number: Union[int, None]
