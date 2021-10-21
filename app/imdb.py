@@ -72,8 +72,26 @@ def get_show_for_title_season_and_episode(title_id: str, season_number: int, epi
     # Get the episode info from the database, and close
     # the database connection
     conn = sqlite3.connect(database_path)
+    
+    # Call your 4 queries (provided) here, and save the results into properly named variables
    
     conn.close()
+    
+    # If the result wasn't a tv series, raise an exception (similar to in get_movie_with_id)
+    # The "type" is the second result in the result of your query
+    
+    # If the season requested doesn't exist, raise an exception
+    # The season doesn't exist if season_number > number of seasons a show has or if the number of seasons a show has is < 1
+    
+    # If the season requested has < 1 episodes or is more than the number of episodes in the season, raise an exception
+    
+    # Split the genres by comma, and create a list of Genre objects -- you can leave this as-is.
+    listed_genres = result[8].split(',')
+    genres = []
+    for genre in listed_genres:
+        genres.append(Genre(**{key: genre for _, key in enumerate(Genre.__fields__.keys())}))
+        
+    # Create a Title object -- see get_movie_with_id for an almost identical operation
 
-    pass
-
+    # return the Title
+ 
