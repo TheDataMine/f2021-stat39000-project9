@@ -19,12 +19,12 @@ class EmptyStrToNone(str):
         
 
 class AKA(BaseModel):
-    title_id: str
-    title: str
-    region: str
-    language: str
-    types: str
-    attributes: str
+    title_id: Union[str, None, EmptyStrToNone]
+    title: Union[str, None, EmptyStrToNone]
+    region: Union[str, None, EmptyStrToNone]
+    language: Union[str, None, EmptyStrToNone]
+    types: Union[str, None, EmptyStrToNone]
+    attributes: Union[str, None, EmptyStrToNone]
     is_original_title: bool
 
 
@@ -33,10 +33,10 @@ class Genre(BaseModel):
 
 
 class Title(BaseModel):
-    title_id: str
-    type: str
-    primary_title: str
-    original_title: str
+    title_id: Union[str, None, EmptyStrToNone]
+    type: Union[str, None, EmptyStrToNone]
+    primary_title: Union[str, None, EmptyStrToNone]
+    original_title: Union[str, None, EmptyStrToNone]
     is_adult: bool
     premiered: int
     ended: Union[int, None]
@@ -46,27 +46,27 @@ class Title(BaseModel):
 
 class Person(BaseModel):
     person_id: str
-    name: str
+    name: Union[str, None, EmptyStrToNone]
     born: int
     died: int
 
 
 class CrewMember(BaseModel):
-    title_id: str
-    person_id: str
-    category: str
-    job: Union[str, None]
-    characters: str
+    title_id: Union[str, None, EmptyStrToNone]
+    person_id: Union[str, None, EmptyStrToNone]
+    category: Union[str, None, EmptyStrToNone]
+    job: Union[str, None, EmptyStrToNone]
+    characters: Union[str, None, EmptyStrToNone]
     
 
 class Rating(BaseModel):
-    title_id: str
+    title_id: Union[str, None, EmptyStrToNone]
     rating: float
     votes: int
     
     
 class Episode(BaseModel):
-    episode_title_id: str
-    show_title_id: str
+    episode_title_id: Union[str, None, EmptyStrToNone]
+    show_title_id: Union[str, None, EmptyStrToNone]
     season_number: int
     episode_number: int
