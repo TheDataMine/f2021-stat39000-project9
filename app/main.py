@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.templating import Jinja2Templates
-from app.schemas import AKA, Title, Person, Crew, Rating, Episode
+from app.schemas import AKA, Title, Person, CrewMember, Rating, Episode
 from app.imdb import get_movie_with_id
 
 
