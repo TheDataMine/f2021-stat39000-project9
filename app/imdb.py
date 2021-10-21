@@ -42,3 +42,38 @@ def get_cast_for_title(title_id: str) -> list[CrewMember]:
         # APPEND crewmemberobject TO LIST
 
     return cast
+
+
+def get_show_for_title(title_id: str) -> Title:
+    # Get the tv info from the database, and close
+    # the database connection
+    conn = sqlite3.connect(database_path)
+    
+    # Query the database to get the data for the show (similar to get_cast_for_title)
+    
+    conn.close()
+    
+    # If the result wasn't a tv series, raise an HTTPException (similar to in get_movie_with_id)
+    # The "type" is the second result in the result of your query
+    
+    # Split the genres by comma, and create a list of Genre objects -- you can leave this as-is.
+    listed_genres = result[8].split(',')
+    genres = []
+    for genre in listed_genres:
+        genres.append(Genre(**{key: genre for _, key in enumerate(Genre.__fields__.keys())}))
+        
+    # Create a Title object -- see get_movie_with_id for an almost identical operation
+    
+    # return the Title
+    
+
+
+def get_show_for_title_season_and_episode(title_id: str, season_number: int, episode_number: int) -> Title:
+    # Get the episode info from the database, and close
+    # the database connection
+    conn = sqlite3.connect(database_path)
+   
+    conn.close()
+
+    pass
+
