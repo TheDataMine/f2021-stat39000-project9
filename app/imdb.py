@@ -1,7 +1,7 @@
 import sqlite3
 from fastapi import HTTPException
 from .database import queries, database_path
-from .schemas import Title, Genre
+from .schemas import Title, Genre, CrewMember
 
 def get_movie_with_id(title_id: str) -> Title:
     # Get the movie info from the database, and close
