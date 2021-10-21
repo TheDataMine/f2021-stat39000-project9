@@ -27,3 +27,18 @@ def get_movie_with_id(title_id: str) -> Title:
     movie = Title(**movie)
 
     return movie
+
+
+def get_cast_for_title(title_id: str) -> list[CrewMember]:
+    # Get the cast for the movie, and close the database connection
+    conn = sqlite3.connect(database_path)
+    results = queries.get_cast_for_title(conn, title_id = title_id)
+    conn.close()
+
+    # Create a list of dictionaries, where each dictionary is a cast member
+    # INITIALIZE EMPTY LIST
+    for member in results:
+        crewmemberobject = CrewMember(**{key: member[i] for i, key in enumerate(CrewMember.__fields__.keys())})
+        # APPEND crewmemberobject TO LIST
+
+    return cast
