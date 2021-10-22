@@ -77,7 +77,7 @@ def get_show_for_title_season_and_episode(title_id: str, season_number: int, epi
    
     conn.close()
     
-    # If the result wasn't a tv series, raise an exception (similar to in get_movie_with_id)
+    # If the result wasn't a "tvSeries", raise an exception (similar to in get_movie_with_id)
     # The "type" is the second result in the result of your query
     
     # If the season requested doesn't exist, raise an exception
