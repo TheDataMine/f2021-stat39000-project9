@@ -73,7 +73,7 @@ def get_show_for_title_season_and_episode(title_id: str, season_number: int, epi
     # the database connection
     conn = sqlite3.connect(database_path)
     
-    # Call your 4 queries (provided) here, and save the results into properly named variables
+    # Call your 4 queries (provided in queries.sql) here, and save the results into properly named variables
    
     conn.close()
     
